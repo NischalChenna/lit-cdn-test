@@ -48,7 +48,7 @@ const ue = (e) => new ce(typeof e == "string" ? e : e + "", void 0, Dt), z = (e,
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-var vt;
+var Et;
 const ct = window, It = ct.trustedTypes, He = It ? It.emptyScript : "", Kt = ct.reactiveElementPolyfillSupport, Ot = { toAttribute(e, t) {
   switch (t) {
     case Boolean:
@@ -77,7 +77,7 @@ const ct = window, It = ct.trustedTypes, He = It ? It.emptyScript : "", Kt = ct.
       }
   }
   return n;
-} }, he = (e, t) => t !== e && (t == t || e == e), Et = { attribute: !0, type: String, converter: Ot, reflect: !1, hasChanged: he };
+} }, he = (e, t) => t !== e && (t == t || e == e), vt = { attribute: !0, type: String, converter: Ot, reflect: !1, hasChanged: he };
 class k extends HTMLElement {
   constructor() {
     super(), this._$Ei = /* @__PURE__ */ new Map(), this.isUpdatePending = !1, this.hasUpdated = !1, this._$El = null, this.u();
@@ -94,7 +94,7 @@ class k extends HTMLElement {
       s !== void 0 && (this._$Ev.set(s, r), t.push(s));
     }), t;
   }
-  static createProperty(t, n = Et) {
+  static createProperty(t, n = vt) {
     if (n.state && (n.attribute = !1), this.finalize(), this.elementProperties.set(t, n), !n.noAccessor && !this.prototype.hasOwnProperty(t)) {
       const r = typeof t == "symbol" ? Symbol() : "__" + t, s = this.getPropertyDescriptor(t, r, n);
       s !== void 0 && Object.defineProperty(this.prototype, t, s);
@@ -109,7 +109,7 @@ class k extends HTMLElement {
     }, configurable: !0, enumerable: !0 };
   }
   static getPropertyOptions(t) {
-    return this.elementProperties.get(t) || Et;
+    return this.elementProperties.get(t) || vt;
   }
   static finalize() {
     if (this.hasOwnProperty("finalized"))
@@ -178,7 +178,7 @@ class k extends HTMLElement {
   attributeChangedCallback(t, n, r) {
     this._$AK(t, r);
   }
-  _$EO(t, n, r = Et) {
+  _$EO(t, n, r = vt) {
     var s;
     const o = this.constructor._$Ep(t, r);
     if (o !== void 0 && r.reflect === !0) {
@@ -257,7 +257,7 @@ class k extends HTMLElement {
   firstUpdated(t) {
   }
 }
-k.finalized = !0, k.elementProperties = /* @__PURE__ */ new Map(), k.elementStyles = [], k.shadowRootOptions = { mode: "open" }, Kt == null || Kt({ ReactiveElement: k }), ((vt = ct.reactiveElementVersions) !== null && vt !== void 0 ? vt : ct.reactiveElementVersions = []).push("1.4.2");
+k.finalized = !0, k.elementProperties = /* @__PURE__ */ new Map(), k.elementStyles = [], k.shadowRootOptions = { mode: "open" }, Kt == null || Kt({ ReactiveElement: k }), ((Et = ct.reactiveElementVersions) !== null && Et !== void 0 ? Et : ct.reactiveElementVersions = []).push("1.4.2");
 /**
  * @license
  * Copyright 2017 Google LLC
@@ -268,7 +268,7 @@ const ut = window, j = ut.trustedTypes, Jt = j ? j.createPolicy("lit-html", { cr
 \f\r](?:([^\\s"'>=/]+)([ 	
 \f\r]*=[ 	
 \f\r]*(?:[^ 	
-\f\r"'\`<>=]|("|')|))|$)`, "g"), Wt = /'/g, Xt = /"/g, fe = /^(?:script|style|textarea|title)$/i, ze = (e) => (t, ...n) => ({ _$litType$: e, strings: t, values: n }), v = ze(1), F = Symbol.for("lit-noChange"), b = Symbol.for("lit-nothing"), Zt = /* @__PURE__ */ new WeakMap(), B = H.createTreeWalker(H, 129, null, !1), Ie = (e, t) => {
+\f\r"'\`<>=]|("|')|))|$)`, "g"), Wt = /'/g, Xt = /"/g, fe = /^(?:script|style|textarea|title)$/i, ze = (e) => (t, ...n) => ({ _$litType$: e, strings: t, values: n }), E = ze(1), F = Symbol.for("lit-noChange"), b = Symbol.for("lit-nothing"), Zt = /* @__PURE__ */ new WeakMap(), B = H.createTreeWalker(H, 129, null, !1), Ie = (e, t) => {
   const n = e.length - 1, r = [];
   let s, o = t === 2 ? "<svg>" : "", i = K;
   for (let u = 0; u < n; u++) {
@@ -632,7 +632,7 @@ function G(e, t, { allOwnKeys: n = !1 } = {}) {
       c = o[r], t.call(null, e[c], c, e);
   }
 }
-function ve(e, t) {
+function Ee(e, t) {
   t = t.toLowerCase();
   const n = Object.keys(e);
   let r = n.length, s;
@@ -641,10 +641,10 @@ function ve(e, t) {
       return s;
   return null;
 }
-const Ee = typeof self > "u" ? typeof global > "u" ? globalThis : global : self, _e = (e) => !X(e) && e !== Ee;
+const ve = typeof self > "u" ? typeof global > "u" ? globalThis : global : self, _e = (e) => !X(e) && e !== ve;
 function Rt() {
   const { caseless: e } = _e(this) && this || {}, t = {}, n = (r, s) => {
-    const o = e && ve(t, s) || s;
+    const o = e && Ee(t, s) || s;
     it(t[o]) && it(r) ? t[o] = Rt(t[o], r) : it(r) ? t[o] = Rt({}, r) : I(r) ? t[o] = r.slice() : t[o] = r;
   };
   for (let r = 0, s = arguments.length; r < s; r++)
@@ -691,13 +691,13 @@ const hn = (e, t, n, { allOwnKeys: r } = {}) => (G(t, (s, o) => {
     const o = s.value;
     t.call(e, o[0], o[1]);
   }
-}, vn = (e, t) => {
+}, En = (e, t) => {
   let n;
   const r = [];
   for (; (n = e.exec(t)) !== null; )
     r.push(n);
   return r;
-}, En = C("HTMLFormElement"), _n = (e) => e.toLowerCase().replace(
+}, vn = C("HTMLFormElement"), _n = (e) => e.toLowerCase().replace(
   /[_-\s]([a-z\d])(\w*)/g,
   function(n, r, s) {
     return r.toUpperCase() + s;
@@ -780,8 +780,8 @@ const hn = (e, t, n, { allOwnKeys: r } = {}) => (G(t, (s, o) => {
   endsWith: mn,
   toArray: yn,
   forEachEntry: bn,
-  matchAll: vn,
-  isHTMLForm: En,
+  matchAll: En,
+  isHTMLForm: vn,
   hasOwnProperty: Gt,
   hasOwnProp: Gt,
   reduceDescriptors: we,
@@ -790,8 +790,8 @@ const hn = (e, t, n, { allOwnKeys: r } = {}) => (G(t, (s, o) => {
   toCamelCase: _n,
   noop: Sn,
   toFiniteNumber: xn,
-  findKey: ve,
-  global: Ee,
+  findKey: Ee,
+  global: ve,
   isContextDefined: _e,
   toJSONObject: On
 };
@@ -1813,24 +1813,24 @@ function De(e) {
     return De(Z(e, s));
   }, n;
 }
-const E = De(jt);
-E.Axios = lt;
-E.CanceledError = tt;
-E.CancelToken = ar;
-E.isCancel = Pe;
-E.VERSION = Ne;
-E.toFormData = yt;
-E.AxiosError = g;
-E.Cancel = E.CanceledError;
-E.all = function(t) {
+const v = De(jt);
+v.Axios = lt;
+v.CanceledError = tt;
+v.CancelToken = ar;
+v.isCancel = Pe;
+v.VERSION = Ne;
+v.toFormData = yt;
+v.AxiosError = g;
+v.Cancel = v.CanceledError;
+v.all = function(t) {
   return Promise.all(t);
 };
-E.spread = lr;
-E.isAxiosError = cr;
-E.AxiosHeaders = R;
-E.formToJSON = (e) => Ce(l.isHTMLForm(e) ? new FormData(e) : e);
-E.default = E;
-const ur = E, et = z`
+v.spread = lr;
+v.isAxiosError = cr;
+v.AxiosHeaders = R;
+v.formToJSON = (e) => Ce(l.isHTMLForm(e) ? new FormData(e) : e);
+v.default = v;
+const ur = v, et = z`
   .d-flex {
     display: flex;
     flex-wrap: wrap;
@@ -1943,16 +1943,16 @@ var dr = Object.defineProperty, pr = Object.getOwnPropertyDescriptor, Le = (e, t
 let dt = class extends x {
   render() {
     var e, t;
-    return v` <div class="category-panel-wrapper">
+    return E` <div class="category-panel-wrapper">
             <h4 class="category-panel-title">${((e = this.categoryData) == null ? void 0 : e.title) || "Category Title"}</h4>
             < div class="divider-h"></div>
             <div class="integrations-logos d-flex">
             
             ${Ue(
       (t = this.categoryData) == null ? void 0 : t.integrationList,
-      (n, r) => v`
+      (n, r) => E`
                 <div class="integration-logo" key=${r}>
-                  ${n != null && n.smallLogo ? v`<img
+                  ${n != null && n.smallLogo ? E`<img
                         src=${n.smallLogo}
                         alt=${n.title || "Integrayion Lgo"}
                       />` : null}
@@ -1998,7 +1998,7 @@ let pt = class extends x {
     super(...arguments), this.categoryList = [];
   }
   render() {
-    return v`
+    return E`
       <div class="category-selection-step">
         <div class="category-selection-step-header">
           <h3 class="category-selection-title text-center w-100">
@@ -2011,7 +2011,7 @@ let pt = class extends x {
         <div class="category-panel-list">
           ${Ue(
       this.categoryList,
-      (e, t) => v`
+      (e, t) => E`
               <category-panel
                 @click=${this._setSelectedCategory(e.title)}
                 categoryData=${e}
@@ -2058,27 +2058,27 @@ var yr = Object.defineProperty, gr = Object.getOwnPropertyDescriptor, br = (e, t
 };
 let Tt = class extends x {
   render() {
-    return v` <div class="integration-selection-step"></div> `;
+    return E` <div class="integration-selection-step"></div> `;
   }
 };
 Tt.styles = [et, z``];
 Tt = br([
   Y("integration-selection")
 ], Tt);
-var vr = Object.defineProperty, Er = Object.getOwnPropertyDescriptor, nt = (e, t, n, r) => {
-  for (var s = r > 1 ? void 0 : r ? Er(t, n) : t, o = e.length - 1, i; o >= 0; o--)
+var Er = Object.defineProperty, vr = Object.getOwnPropertyDescriptor, nt = (e, t, n, r) => {
+  for (var s = r > 1 ? void 0 : r ? vr(t, n) : t, o = e.length - 1, i; o >= 0; o--)
     (i = e[o]) && (s = (r ? i(t, n, s) : i(s)) || s);
-  return r && s && vr(t, n, s), s;
+  return r && s && Er(t, n, s), s;
 };
 let U = class extends x {
   constructor() {
     super(...arguments), this.step = 0, this.appsDataLoaded = !1, this.appsData = [], this.appsApiError = !1;
   }
   render() {
-    return v`
+    return E`
       <div class="dialog-wrapper" role="dialog">
         <div class="popup-container">
-          ${this.appsDataLoaded ? this.appsApiError ? v`
+          ${this.appsDataLoaded ? this.appsApiError ? E`
                   <div class="h-80 d-flex align-items-center w-100">
                     <h4 class="w-inherit text-center">
                       There is some issue with token
@@ -2091,10 +2091,10 @@ let U = class extends x {
                   >
                     <button class="base-btn color-grey">Exit</button>
                   </div>
-                ` : v`
+                ` : E`
                   <div class="popup-header d-flex">
                     <div class="header-left w-50  text-left">
-                      ${this.step == 0 ? v`` : v`<button
+                      ${this.step == 0 ? E`` : E`<button
                             class="header-btn bg-transparent color-grey back-btn"
                             @click="${this._back}"
                           >
@@ -2113,7 +2113,7 @@ let U = class extends x {
                   ${hr(this.step, [
       [
         0,
-        () => v`<category-selection
+        () => E`<category-selection
                           categoryList="${this.appsData}"
                           @nextStep=${this._nextStep}
                           @selectCategory=${this._setSelectedCategory}
@@ -2121,12 +2121,12 @@ let U = class extends x {
       ],
       [
         1,
-        () => v`<integration-selection
+        () => E`<integration-selection
                           @nextStep=${this._nextStep}
                         ></integration-selection>`
       ]
     ])}
-                ` : v`<div class="full-page-wrapper  align-items-center">
+                ` : E`<div class="full-page-wrapper  align-items-center">
                 <h4 class="w-100 text-center">Loading...</h4>
               </div>`}
         </div>
@@ -2227,7 +2227,7 @@ nt([
 U = nt([
   Y("knit-popup")
 ], U);
-const _r = `.component-wrapper{background-color:violet}.component-wrapper h1{color:#000}.component-wrapper .dialog-wrapper{background-color:red!important}
+const _r = `.component-wrapper{background-color:#ff0}.component-wrapper h1{color:#000}.component-wrapper .dialog-wrapper{background-color:red!important}
 `;
 var wr = Object.defineProperty, $r = Object.getOwnPropertyDescriptor, A = (e, t, n, r) => {
   for (var s = r > 1 ? void 0 : r ? $r(t, n) : t, o = e.length - 1, i; o >= 0; o--)
@@ -2241,9 +2241,9 @@ let w = class extends x {
     }, this.knitKey = "", this.popupEnabled = !1, this.appsDataLoaded = !1, this.appsData = [], this.appsApiError = !1;
   }
   render() {
-    return v`
+    return E`
       <div class="component-wrapper">
-        ${this.popupEnabled ? v`
+        ${this.popupEnabled ? E`
               <knit-popup
                 appsDataLoaded=${this.appsDataLoaded}
                 appsApiError=${this.appsApiError}
@@ -2252,7 +2252,7 @@ let w = class extends x {
               ></knit-popup>
             ` : ""}
         <h1>Hi</h1>
-        ${v`<slot name="initiator" @click=${this._onInitiatorClick}></slot>`}
+        ${E`<slot name="initiator" @click=${this._onInitiatorClick}></slot>`}
       </div>
     `;
   }
